@@ -1,0 +1,30 @@
+<%- include("../partials/header"); -%>
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Welcome to the posts page</h1>
+    </div>
+    <a href="\">Go Back</a>
+    <hr>
+    <% posts.forEach(function(post){ %>
+    <div class="row no-gutters img-thumbnail" style="margin: 20px; padding: 20px">
+        <div class="col-6 col-md-4">
+            <img src="<%= post.thumbnail %>" alt="" height="200px" width="auto">
+        </div>
+        <div class="col-12 col-sm-6 col-md-8">
+            <h4 class=" font-weight-bold"><%= post.title %></h4>
+            <h5 class="about"><%= post.desc %> </h5>
+            <p class="text-right" style="margin-right: 30px;">
+                <a href="/posts/<%= post._id %>" class="btn btn-danger">Load More</a>
+            </p>
+        </div>
+    </div>
+    <% }) %>
+    
+    <div class="text-center">
+        <a href="/posts/new" class="btn btn-primary">Make new posts</a>
+    </div>
+</div>
+
+
+<%- include ("../partials/footer"); -%>

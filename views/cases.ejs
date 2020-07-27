@@ -1,0 +1,64 @@
+<%- include("partials/header"); -%>
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Live Cases page</h1>
+    </div>
+    <a href="/">Home</a>
+    <hr>
+    <div class="accordion">
+        <% for(state in data){ %>
+        <div class="accordion-panel">
+            <h3 class="accordion-header">State Code : <%= state %></h3>
+            <% for(district in data[state]["districts"]){ %>
+            <div class="accordion-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p><strong> <%= district %></strong> </p>
+                    </div>
+                    <% if(!data[state]["districts"][district]["total"] || !data[state]["districts"][district]["total"]["confirmed"]){ %>
+                    <% confirmed = '-'%>
+                    <% } else{ %>
+                    <% confirmed = data[state]["districts"][district]["total"]["confirmed"]  %>
+                    <% recovered = data[state]["districts"][district]["total"]["recovered"]  %>
+                    <% } %>
+                    <div class="col">
+                        <span style="color: rgb(255, 108, 50);">Confirmed : <strong><%= confirmed %> </strong> </span>
+                    </div>
+                    <div class="col">
+                        <span style="color: rgb(32, 204, 55);">Recovered : <strong><%= recovered %></strong> </span>
+                    </div>
+                </div>
+
+
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+    <h3>States:</h3>
+    <div class="text-center">
+    </div>
+
+</div>
+
+<script>
+    const accordions = document.querySelectorAll(".accordion");
+    for (const accordion of accordions) {
+        const panels = accordion.querySelectorAll(".accordion-panel");
+        for (const panel of panels) {
+            const head = panel.querySelector(".accordion-header");
+            head.addEventListener('click', () => {
+                for (const otherPanel of panels) {
+                    if (otherPanel !== panel) {
+                        otherPanel.classList.remove('accordion-expanded');
+                    }
+                }
+                panel.classList.toggle('accordion-expanded');
+            });
+        }
+    }
+</script>
+
+
+<%- include ("partials/footer"); -%>

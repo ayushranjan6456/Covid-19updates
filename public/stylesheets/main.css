@@ -1,0 +1,37 @@
+body {
+  background-color: rgb(150, 219, 252);
+}
+
+.navbar-default {
+  background: rgb(204, 225, 250);
+  margin-bottom: 50px;
+}
+
+.accordion-header {
+  cursor: pointer;
+}
+
+.accordion-panel {
+  border: 1px dashed black;
+  margin: 2px;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.accordion-panel > .accordion-body {
+  display: none;
+  background-color: rgb(224, 224, 224);
+  padding: 0 15px 10px 15px;
+}
+
+.accordion-panel.accordion-expanded > .accordion-body {
+  display: block;
+}
+
+.about {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}

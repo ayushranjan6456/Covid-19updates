@@ -1,0 +1,28 @@
+<%- include("partials/header"); -%>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Login!</h1>
+    </div>
+    <a href="/posts">Home</a>
+
+    <form action="/login" method="POST">
+        <div class="input-group" style="width: 40%; margin: 25px auto;">
+            <div class="input-group-prepend">
+                <span class="input-group-text">UserName</span>
+            </div>
+            <input type="text" name="username" class="form-control">
+        </div>
+        <div class="input-group" style="width: 40%; margin: 25px auto;">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+            </div>
+            <input type="password" name="password" class="form-control">
+        </div>
+        <div class="form-group" style="width: 40%; margin: 10px auto;">
+            <input type="submit" class="btn btn-primary" value="Login">
+        </div>
+
+    </form>
+</div>
+
+<%- include ("partials/footer"); -%>
